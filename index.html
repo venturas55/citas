@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Citas</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="contenedor">
+        <div class="contenedorFlex">
+          <h1>FRASE:</h1>
+          <blockquote>
+            {{textoAleatorio}}
+  
+          </blockquote>
+          <p>{{autorAleatorio}}</p>
+          </div>
+
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+    <script>
+          var app = new Vue({
+              el: "#app",
+              data: {
+                  textos: [
+                    {texto:'Jamas se ha emborrachado nadie a base de comprender intelectualmente la palabra "vino"',autor:'Anthony de Mello'},
+                    {texto: 'Llamamos casualidad a la causa ignorada de un efecto desconocido',autor:'Voltaire'},
+                    {texto: 'Es mas fácil engañar a la gente que convencerles de que han sido engañados',autor:'Mark Twain'},
+                    {texto: 'La mejor manera de evitar que un prisionero escape es asegurarse de que nunca sepa que está encarcelado',autor:'Fiodor Dostoyevski'},
+                    {texto: 'El amigo y el enemigo, la virtud y el vicio están sólo en la mente. Todo hombre crea un mundo de bien y de mal, de placer y de dolor solamente con su imaginación.',autor:'Swami Sivananda'},
+                    {texto: 'Toda la materia es solo energia condensada en un estado de vibracion baja que todos somos una consciencia experimentadose a si misma subconscientemente que no existe la muerte, y la vida es solo un sueño. Y somos la imaginacion de nosotros mismos.',autor:'Bill Hicks'},
+                    {texto: 'El verdadero viaje de descubrimiento no consiste en buscar nuevos paisajes, sino en mirar con ojos nuevos',autor:'Marcel Proust'},
+                    {texto: 'Los viejos llamamientos al chavinismo racial, sexual o religioso y el furibundo fervor nacionalista, empiezan a dejar de funcionar.		Una nueva consciencia se esta desarrolando que ve la tierra como un solo organismo, y reconoce que un organismo en guerra consigo mismo esta condenado.				Somos un planeta.',autor:'Carl Sagan'},
+                    {texto: 'Viviendo, todo nos falta. Mueriendo, todo nos sobra.',autor:'Felix Lope de Vega'},
+                    {texto: 'Esperar que la vida te trate bien por ser bueno, es como esperar que un tigre no te coma por ser vegano',autor:'Bruce Lee'},
+                    {texto: 'La adversidad es el gimnasio espiritual donde entrenar la fortaleza y la virtud',autor:'Marco Aurelio'},
+                    {texto: 'Te juzgo desdichado porque nunca has vivido en la desdicha',autor:'Lucio Anneo Seneca'},
+                    {texto: 'Vivimos encerrados en carceles de oro, todo acolchado',autor:'BV'},
+                    {texto: 'Ataraxia, impertubabilidad interior frente a circunstancias desfavorables para el ego',autor:'BV'},
+                    {texto: 'La realidad lo que sucede es el decorado, como yo me lo tomo depende de mis pensamientos',autor:'BV'},
+                    {texto: 'La ayuda viene en forma de dolor.',autor:'BV'},
+                    {texto: 'No sufrimos por lo que pasa, si no con lo que hacemos con lo que pasa',autor:'BV'},
+                    {texto: 'Buena suerte, mala suerte... quien sabe?',autor:'BV'},
+
+
+                            ],
+                      numero: 0,
+
+              },
+              mounted: function () {
+                      this.comenzar();
+              },
+              computed: {
+                  textoAleatorio: function () {
+                      return this.textos[this.numero].texto ;
+                  },
+                  autorAleatorio: function(){
+                    return this.textos[this.numero].autor;
+                  }
+              },
+              methods: {
+
+                  aleatorio: function () {
+                      this.numero= Math.floor(Math.random() * (this.textos.length - 1)) + 1;
+                  },
+                  comenzar: function () {
+                          var id = setInterval(function () {
+                          app.aleatorio()
+                      }, 8000) //app.funcion() ha de llevar los PARENTESIS!!!
+
+
+                  },
+
+
+              }
+          })
+    </script>
+  </body>
+</html>
