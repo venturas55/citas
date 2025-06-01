@@ -1,0 +1,75 @@
+/* VARIABLES */
+
+:root {
+    --main-bg-color: black;
+    --main-color: rgb(245, 243, 241);
+    --app-bg: black;
+    --bar-bg: rgb(110, 109, 109);
+    --bar-color: rgb(241, 241, 245);
+}
+
+/*   var(--botton-color)    */
+
+
+/* CUERPO */
+body {
+    /* background: url(../img/bg1.jpg) no-repeat center center; */
+    background-color: var(--main-bg-color);
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+
+}
+
+body,
+input,
+select,
+textarea {
+    font-family: "Merriweather", Georgia, serif;
+    font-size: 1.0em;
+}
+
+
+/* APLICACION */
+#app {
+    padding-top: 2em;
+    background: var(--app-bg);
+    width: 90%;
+    min-width: 300px;
+    margin: 0px auto;
+
+}
+
+/* CONTENEDOR OPCIONES DESPUES DE FICHA */
+
+.contenedorFlex {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor h1 {
+    text-align: center;
+    color: rgb(241, 233, 233);
+    width: 100%;
+
+}
+
+.contenedor p {
+    color: rgb(241, 233, 233);
+}
+
+.item {
+    margin: 1em;
+    font-size: 1em;
+}
+
+@media (max-width: 575px) {
+    .algo {
+        margin: 0px;
+
+    }
+}

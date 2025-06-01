@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Puedo salir de casa?</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="#" />
+    <!--     <script src="./js/script.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="contenedor">
+            <div class="contenedorFlex">
+                <h1>NO.</h1>
+                <p>{{textoAleatorio}} </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                textos: ['que parte del "NO" no entiendes??',
+                    'Que no! Mierda, asqueroso, basura!',
+                    'Eres tonto o eres tonto?',
+                    'Si es que contigo no se puede...',
+                    'Pero donde vas cara mierda???',
+                    'Que no puedes salir!',
+                    'Para una vez que puedes salvar al planeta tocandote los huevos, la vas a cagar'],
+                    numero: 0,
+         
+            },
+            mounted: function () {
+                    this.comenzar();
+            },
+            computed: {
+                textoAleatorio: function () {
+                    return this.textos[this.numero];
+                }
+            },
+            methods: {
+
+                aleatorio: function () {
+                    this.numero= Math.floor(Math.random() * (this.textos.length - 1)) + 1;
+                },
+                comenzar: function () {
+                        var id = setInterval(function () {
+                        app.aleatorio()
+                    }, 2000) //app.funcion() ha de llevar los PARENTESIS!!!
+
+
+                },
+              
+
+            }
+        })
+    </script>
+</body>
+
+</html>

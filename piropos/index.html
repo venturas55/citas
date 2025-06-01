@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Puedo salir de casa?</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="#" />
+    <!--     <script src="./js/script.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="contenedor">
+            <div class="contenedorFlex">
+                <h1>Piropos.</h1>
+                <p>{{textoAleatorio}} </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                textos: ['Si el rio va al mar, y el mar va al rio, porque no juntas lo tuyo con lo mio',
+                    'Cuando te veo me creo cerveza. Me pones helada y quiero que me tomes todita hasta el fondo.',
+                    'Me voy a comprar un diccionario, porque desde que te ví me quedé sin palabras.',
+                    'Eliminame, bloqueame, haz lo que quieras... pero cada vez que vas una iglesia te acordarás de este santo.',
+                    'Ni en clase de matemáticas me perdía tanto como en tu mirada', 'Quisiera ser ladrillo, para sostener esa estructura',
+                     '¿Por casualidad, tu nombre es Gillette? ¡Porque eres lo mejor para el hombre!', 'Me acabo de mudar a la ciudad: ¿podrías darme instrucciones sobre cómo llegar hasta tu casa?', 
+                     '¿Estás preparada para subir a la Luna? Porque tengo el cohete preparado','Me gusta mucho una mujer, pero no te voy a decir quién eres',
+                     '¿Te gusta Star Wars? Porque a mí me gusta Star contigo.','Eres como la chancla de mi madre: te veo venir y se me acelera el corazón.',
+                     '¿Cuánto pesa un oso polar? Yo tampoco lo sé, pero rompe el hielo. ¿Quieres tomar algo?','¿Vives a menudo por aquí?',
+                     'Bueno, aquí estoy, ¿cuáles eran tus otros dos deseos?','Toca mi camisa. ¿Sabes de qué está hecha? De auténtico novio 100%.',
+                     'He perdido mi número del móvil. ¿Me das el tuyo?','No voy a intentar ligar contigo porque hoy no tengo ganas de quedar con una chica guapa... ¿tienes algo que hacer mañana?',
+                     '¿Qué te parece si nos damos un tiempo? Por ejemplo, tú me das tu presente y yo te doy mi futuro.','¿En nuestra boda tampoco vas a bailar?',
+                     'Hola, estudio Magisterio para educar a nuestros futuros hijos.','Te voy a dar un beso, y si no te gusta pues me lo devuelves.',
+                     'Me gustaría ser tu derivada para quedarme tangente a tus curvas','¿Te gusta el agua? ¿Sí? Genial: ya te gusta un 70 % de mí.',
+                     'Me recomiendan 9 de cada 10 mujeres (la otra es mi ex).','Besar es el lenguaje del amor. ¿Hablamos?',
+                     'xxxxx','xxxxx',
+
+                     ],
+                numero: 0,
+
+            },
+            mounted: function () {
+                this.comenzar();
+            },
+            computed: {
+                textoAleatorio: function () {
+                    return this.textos[this.numero];
+                }
+            },
+            methods: {
+
+                aleatorio: function () {
+                    this.numero = Math.floor(Math.random() * (this.textos.length - 1)) + 1;
+                },
+                comenzar: function () {
+                    var id = setInterval(function () {
+                        app.aleatorio()
+                    }, 5000) //app.funcion() ha de llevar los PARENTESIS!!!
+
+
+                },
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>
